@@ -66,7 +66,7 @@ const App: React.FC = () => {
       hlsRef.current = new Hls(); // Create a new Hls.js instance
 
       // Attach error listener for HLS.js
-      hlsRef.current.on(Hls.Events.ERROR, (event, data) => {
+      hlsRef.current.on(Hls.Events.ERROR, (_event, data) => {
         if (data.fatal) {
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
