@@ -7,6 +7,8 @@ interface HLSPlayerComponentProps {
   getStatusColorClass: () => string;
 }
 
+
+
 const HLSPlayerComponent: React.FC<HLSPlayerComponentProps> = ({
   videoRef,
   statusMessage,
@@ -25,8 +27,9 @@ const HLSPlayerComponent: React.FC<HLSPlayerComponentProps> = ({
           autoPlay
           className="w-full aspect-video rounded-lg bg-black"
         />
-        <p id="statusMessage" className={`mt-3 text-sm ${getStatusColorClass()}`}>
-          {statusMessage}
+        <p id="statusMessage"
+            className={`mt-4 rounded-md px-4 py-2 text-sm font-medium transition-all duration-300 ${getStatusColorClass()}`}>
+            {statusMessage}
         </p>
       </div>
     </div>
