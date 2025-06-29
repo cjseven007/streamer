@@ -16,7 +16,7 @@ const HLSPlayerComponent: React.FC<HLSPlayerComponentProps> = ({
   getStatusColorClass,
 }) => {
   return (
-    <div className="flex justify-center bg-[#121212] min-h-screen font-sans px-4 py-8">
+    <div className="flex justify-center bg-[#121212] font-sans px-4">
       <div className="w-full max-w-[960px]">
         {/* Removed input + button */}
         <video

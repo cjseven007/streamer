@@ -70,7 +70,12 @@ export const useHlsPlayerLogic = (): HLSPlayerLogic => {
 
     // Use the sanitized URL from now on
     if (Hls.isSupported()) {
-        hlsRef.current = new Hls();
+        hlsRef.current = new Hls({
+          maxBufferHole: 1,
+          maxBufferLength: 20,
+          lowLatencyMode: true,
+          enableWorker: true,
+        });
 
         hlsRef.current.on(Hls.Events.ERROR, (_event, data) => {
         if (data.fatal) {
