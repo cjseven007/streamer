@@ -27,7 +27,8 @@ export const useHlsPlayerLogic = (): HLSPlayerLogic => {
   }, []);
 
   // Function to load the HLS stream
- const loadHlsStream = useCallback(() => {
+ const loadHlsStream = useCallback((urlToLoad?: string) => {
+    const urlToUse = urlToLoad ?? hlsUrl;
     const video = videoRef.current;
     if (!video) {
         displayMessage('Video element not found.', 'error');
@@ -42,7 +43,7 @@ export const useHlsPlayerLogic = (): HLSPlayerLogic => {
     }
 
     // Extract the URL from the user input
-    const cleanUrl = extractValidUrl(hlsUrl);
+    const cleanUrl = extractValidUrl(urlToUse);
 
     if (!cleanUrl) {
         displayMessage('Please enter a valid HTTP or HTTPS URL.', 'error');
